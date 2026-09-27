@@ -21,14 +21,14 @@
   ],
 
   "documents": [
-    { "date": "2026-09-27", "title": "Выписка", "file": "documents/2026-09-27-vypiska.pdf" },
-    { "date": "2026-09-21", "title": "Выписка", "file": "documents/2026-09-21-vypiska.pdf" },
-    { "date": "2026-09-19", "title": "Выписка", "file": "documents/2026-09-19-vypiska.pdf" },
-    { "date": "2026-09-16", "title": "Выписка", "file": "documents/2026-09-16-vypiska.pdf" },
-    { "date": "2026-09-15", "title": "Выписка", "file": "documents/2026-09-15-vypiska.pdf" },
-    { "date": "2026-09-13", "title": "Выписка", "file": "documents/2026-09-13-vypiska.pdf" },
-    { "date": "2026-09-13", "title": "УЗИ", "file": "documents/2026-09-13-uzi.pdf" },
-    { "date": "2026-09-13", "title": "Исследование", "file": "documents/2026-09-13-issledovanie.pdf" }
+    { "date": "2026-09-27", "title": "Выписка", "file": "2026-09-27-vypiska.pdf" },
+    { "date": "2026-09-21", "title": "Выписка", "file": "2026-09-21-vypiska.pdf" },
+    { "date": "2026-09-19", "title": "Выписка", "file": "2026-09-19-vypiska.pdf" },
+    { "date": "2026-09-16", "title": "Выписка", "file": "2026-09-16-vypiska.pdf" },
+    { "date": "2026-09-15", "title": "Выписка", "file": "2026-09-15-vypiska.pdf" },
+    { "date": "2026-09-13", "title": "Выписка", "file": "2026-09-13-vypiska.pdf" },
+    { "date": "2026-09-13", "title": "УЗИ", "file": "2026-09-13-uzi.pdf" },
+    { "date": "2026-09-13", "title": "Исследование", "file": "2026-09-13-issledovanie.pdf" }
   ],
 
   "news": [
