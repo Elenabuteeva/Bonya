@@ -241,7 +241,7 @@
       return '<li class="' + (ev.now ? "now" : "") + '"><div class="node" aria-hidden="true"></div><div class="ev">' +
         '<span class="when">' + esc(ev.when) + (ev.now ? ", сейчас" : "") + "</span><h3>" + esc(ev.title) + "</h3><p>" + esc(ev.text) + "</p></div></li>";
     }).join("");
-    var st = [["Подтверждено", story.confirmed], ["Предполагают врачи", story.assumed], ["Пока неизвестно", story.unknown]];
+    var st = [["Подтверждено", story.confirmed], ["Предполагают врачи", story.assumed], ["Причина болезни", story.unknown]];
     $("status").innerHTML = st.filter(function (s) { return s[1]; }).map(function (s) {
       return '<div class="status-row"><h3>' + s[0] + "</h3><p>" + esc(s[1]) + "</p></div>";
     }).join("");
