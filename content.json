@@ -55,6 +55,33 @@
   }
 ],
 
+"receipts": [
+    { "date": "2026-09-13", "file": "receipts/13.09.26.pdf" },
+    { "date": "2026-09-15", "file": "receipts/15.09.26.png" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26.pdf" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26 2.pdf" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26 3.pdf" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26 4.pdf" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26 5.pdf" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26 6.pdf" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26. 7.pdf" },
+    { "date": "2026-09-17", "file": "receipts/17.09.26 8.pdf" },
+    { "date": "2026-09-18", "file": "receipts/18.09.26.pdf" },
+    { "date": "2026-09-18", "file": "receipts/18.09.26 2.pdf" },
+    { "date": "2026-09-19", "file": "receipts/19.09.26.pdf" },
+    { "date": "2026-09-19", "file": "receipts/19.09.26 2.pdf" },
+    { "date": "2026-09-19", "file": "receipts/19.09.26 3.pdf" },
+    { "date": "2026-09-19", "file": "receipts/19.09.26 4.pdf" },
+    { "date": "2026-09-21", "file": "receipts/21.09.26.pdf" },
+    { "date": "2026-09-21", "file": "receipts/21.09.26 2.pdf" },
+    { "date": "2026-09-21", "file": "receipts/21.09.26 3.pdf" },
+    { "date": "2026-09-24", "file": "receipts/24.09.26.pdf" },
+    { "date": "2026-09-24", "file": "receipts/24.09.26 2.pdf" },
+    { "date": "2026-09-27", "file": "receipts/27.09.26.pdf" },
+    { "date": "2026-09-27", "file": "receipts/27.09.26 2.pdf" },
+    { "date": "2026-09-27", "file": "receipts/27.09.26 3.pdf" }
+  ],
+  
   "documents": [
     { "date": "2026-09-27", "title": "Выписка", "file": "2026-09-27-vypiska.pdf" },
     { "date": "2026-09-21", "title": "Выписка", "file": "2026-09-21-vypiska.pdf" },
