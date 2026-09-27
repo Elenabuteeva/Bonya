@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Помочь Боне пройти обследования и лечение</title>
+<meta name="description" content="Боне 10 лет. Он заболел: пропал аппетит, началась частая рвота. Врачи ищут причину, обследования продолжаются. Здесь история, чеки, выписки и способы помочь.">
+
+<!-- Превью ссылки в мессенджерах и соцсетях -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Помочь Боне">
+<meta property="og:title" content="Помочь Боне пройти обследования и лечение">
+<meta property="og:description" content="Боне 10 лет. Он заболел, врачи ищут причину. Здесь история, чеки, выписки и способы помочь.">
+<meta property="og:url" content="https://elenabuteeva.github.io/bonya/">
+<meta property="og:image" content="https://elenabuteeva.github.io/bonya/photos/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Боня, серебристый полосатый кот, смотрит в камеру">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Помочь Боне пройти обследования и лечение">
+<meta name="twitter:description" content="Боне 10 лет. Он заболел, врачи ищут причину. Здесь история, чеки, выписки и способы помочь.">
+<meta name="twitter:image" content="https://elenabuteeva.github.io/bonya/photos/og-image.jpg">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Unbounded:wght@700;800&amp;display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#help">Перейти к способам помощи</a>
+
+<header class="top wrap">
+  <a class="logo" href="#top" aria-label="Боня — в начало страницы"><span class="logo-cat" data-pixel="cat"></span><span>Боня</span></a>
+  <nav class="nav" aria-label="Разделы">
+    <a href="#story">История</a>
+    <a href="#docs">Чеки и документы</a>
+    <a href="#news">Как он сейчас</a>
+    <a class="btn btn-pink btn-sm" href="#help">Помочь Боне</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 1. Первый экран -->
+  <section id="top" class="hero wrap">
+    <div class="hero-text">
+      <p class="kicker"><span data-pixel="heart"></span>сбор на обследования и лечение</p>
+      <h1 id="t-title">Помочь Боне пройти обследования и&nbsp;лечение</h1>
+      <p class="lead" id="t-intro">Это Боня, ему 10 лет. Он заболел: пропал аппетит, началась частая рвота. Врачи пока ищут причину, обследования продолжаются — и&nbsp;мне нужна помощь с&nbsp;расходами на его лечение.</p>
+      <div class="funds card-hard" id="funds" aria-live="polite">
+        <div class="funds-grid">
+          <div><span class="label">Цель сбора</span><strong id="f-goal">…</strong></div>
+          <div><span class="label">Собрано</span><strong id="f-raised">…</strong></div>
+          <div><span class="label">Осталось</span><strong id="f-left">…</strong></div>
+        </div>
+        <div class="progress-row"><div class="progress" id="f-bar" role="progressbar" aria-label="Прогресс сбора" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div><span id="f-pct">0%</span></div>
+        <div class="funds-foot">
+          <span>Данные обновлены: <span id="f-updated">…</span></span>
+          <details class="goal-why" id="goal-why"><summary>Из чего складывается цель</summary><div id="goal-text"></div></details>
+        </div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-pink" href="#rub">Помочь в рублях</a>
+        <a class="btn btn-lilac" href="#crypto">Помочь криптой</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <div class="arch-back" aria-hidden="true"></div>
+      <img id="p-hero" src="photos/home.jpg" alt="Боня дома на диване, смотрит в камеру" width="960" height="1280" fetchpriority="high">
+      <figcaption class="sticker" id="t-sticker">это Боня, 10 лет</figcaption>
+    </figure>
+  </section>
+
+  <!-- 2. Знакомьтесь -->
+  <section class="band band-lilac" id="story">
+    <div class="edge" aria-hidden="true"></div>
+    <div class="wrap meet">
+      <div class="bigword" aria-hidden="true">БОНЯ</div>
+      <div class="meet-grid">
+        <picture class="meet-cutout">
+          <source id="p-about-webp" srcset="photos/meet.webp" type="image/webp">
+          <img id="p-about" src="photos/meet.png" alt="Боня сидит на стуле и машет лапой" width="527" height="1037" loading="lazy">
+        </picture>
+        <div class="meet-text">
+          <h2>Знакомьтесь, это&nbsp;Боня</h2>
+          <p id="t-about"></p>
+          <div class="gallery" id="gallery"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Что случилось -->
+  <section class="band band-base">
+    <div class="edge" aria-hidden="true"></div>
+    <div class="wrap two-col">
+      <div class="col-head">
+        <h2>Что с ним случилось</h2>
+        <p class="muted" id="t-clinic"></p>
+      </div>
+      <ol class="timeline" id="timeline"></ol>
+    </div>
+    <div class="wrap status" id="status"></div>
+  </section>
+
+  <!-- 4. Почему я прошу помощи -->
+  <section class="band band-pink">
+    <div class="edge" aria-hidden="true"></div>
+    <div class="wrap why">
+      <img id="p-why" class="photo-hard" src="photos/cone.jpg" alt="Боня в защитном воротнике в клинике" width="960" height="1280" loading="lazy">
+      <div class="why-text">
+        <h2>Почему я прошу помощи</h2>
+        <div id="t-why"></div>
+        <p class="signature"><span data-pixel="heart"></span><span id="t-signature"></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Чеки и документы -->
+  <section class="band band-base" id="docs">
+    <div class="edge" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="docs-head">
+        <div>
+          <h2>Чеки и документы</h2>
+          <p class="muted">Все чеки и выписки врачей можно открыть. Личные данные в них закрыты.</p>
+        </div>
+        <div class="totals">
+          <div class="total total-paid"><span class="label">Уже оплачено</span><strong id="e-paid">…</strong></div>
+          <div class="total total-planned"><span class="label">Предстоит, предварительно</span><strong id="e-planned">…</strong></div>
+        </div>
+      </div>
+      <div class="docs-grid">
+        <div>
+          <h3>Чеки</h3>
+          <ul class="receipts" id="receipts"></ul>
+          <button type="button" class="btn btn-paper btn-sm" id="receipts-more" hidden>Все чеки</button>
+        </div>
+        <div>
+          <h3>Выписки и анализы</h3>
+          <ul class="doc-tiles" id="documents"></ul>
+        </div>
+      </div>
+      <div class="planned">
+        <div class="planned-head"><h3>Предстоящие расходы</h3><p class="muted">Суммы предварительные — по назначениям врачей.</p></div>
+        <div id="planned"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Как Боня сейчас -->
+  <section class="band band-lilac-light" id="news">
+    <div class="edge" aria-hidden="true"></div>
+    <div class="wrap two-col">
+      <div class="col-head">
+        <h2>Как Боня сейчас</h2>
+        <p>Короткие новости о самочувствии, результатах и следующих шагах. Самое свежее — сверху.</p>
+      </div>
+      <div>
+        <div id="news-list"></div>
+        <button type="button" class="btn btn-paper btn-sm" id="news-more" hidden>Показать ещё новости</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Помочь Боне -->
+  <section class="band band-ink" id="help">
+    <div class="edge" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="help-head">
+        <h2>Помочь Боне</h2>
+        <div class="help-sum">
+          <p>Собрано <strong id="h-raised">…</strong> <span id="h-of"></span></p>
+          <div class="progress progress-dark" id="h-bar" aria-hidden="true"></div>
+          <p class="small">Обновлено: <span id="h-updated">…</span></p>
+        </div>
+      </div>
+      <div class="pay-grid">
+        <div class="pay-card pay-rub" id="rub" tabindex="-1">
+          <div class="pay-title"><h3>В рублях</h3><span class="tag" id="rub-bank"></span></div>
+          <div id="rub-body"></div>
+        </div>
+        <div class="pay-card pay-crypto" id="crypto" tabindex="-1">
+          <div class="pay-title"><h3>Криптой</h3><span class="tag">через Bybit</span></div>
+          <div id="crypto-body"></div>
+        </div>
+      </div>
+      <div class="help-extra">
+        <div>
+          <h3>Поделиться сбором</h3>
+          <p>Если не можете помочь деньгами — отправить ссылку знакомым тоже очень помогает.</p>
+          <div class="share-row">
+            <button type="button" class="btn btn-pink" id="share-btn">Поделиться сбором</button>
+            <div class="copy-field"><span id="share-url"></span><button type="button" id="share-copy">Скопировать</button></div>
+          </div>
+        </div>
+        <div>
+          <h3>Вопросы</h3>
+          <p>Пишите мне — отвечу и пришлю любые документы, которые нужны.</p>
+          <div class="contacts" id="contacts"></div>
+        </div>
+      </div>
+      <div class="thanks"><span data-pixel="heart-big"></span><p id="t-thanks"></p></div>
+      <footer class="foot"><span class="foot-name"><span data-pixel="cat"></span><span id="t-footer"></span></span><span>Данные обновлены: <span id="foot-updated"></span></span></footer>
+    </div>
+  </section>
+</main>
+
+<!-- Просмотр чеков -->
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="viewer-title">
+  <div class="viewer-bar">
+    <div><p class="viewer-meta" id="viewer-meta"></p><p class="viewer-title" id="viewer-title"></p></div>
+    <button type="button" class="icon-btn" id="viewer-close" aria-label="Закрыть"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2L16 16M16 2L2 16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="viewer-stage" id="viewer-stage"><img id="viewer-img" alt=""></div>
+  <div class="viewer-tools">
+    <button type="button" class="icon-btn" id="viewer-prev" aria-label="Предыдущий документ">‹</button>
+    <button type="button" class="icon-btn" id="viewer-out" aria-label="Уменьшить">−</button>
+    <span id="viewer-zoom">100%</span>
+    <button type="button" class="icon-btn" id="viewer-in" aria-label="Увеличить">+</button>
+    <button type="button" class="icon-btn" id="viewer-next" aria-label="Следующий документ">›</button>
+  </div>
+  <a class="btn btn-pink viewer-open" id="viewer-orig" href="#" target="_blank" rel="noopener">Открыть оригинал файла</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript><p class="wrap">Чтобы увидеть суммы, чеки и способы помощи, включите JavaScript в браузере.</p></noscript>
+
+<script src="assets/qr.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
