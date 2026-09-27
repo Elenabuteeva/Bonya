@@ -96,7 +96,7 @@
   "payments": {
     "rub": {
       "bank": "Т-Банк",
-      "url": "",
+      "url": "https://t.tb.ru/pm_short/6FJPETh5q6g",
       "details_label": "",
       "details": ""
     },
