@@ -241,7 +241,7 @@
       return '<li class="' + (ev.now ? "now" : "") + '"><div class="node" aria-hidden="true"></div><div class="ev">' +
         '<span class="when">' + esc(ev.when) + (ev.now ? ", сейчас" : "") + "</span><h3>" + esc(ev.title) + "</h3><p>" + esc(ev.text) + "</p></div></li>";
     }).join("");
-    var st = [["Подтверждено", story.confirmed], ["Предполагают врачи", story.assumed], ["Причина болезни", story.unknown]];
+    var st = [["Подтверждено", story.confirmed], ["Предполагают врачи", story.assumed], ["Пока неизвестно", story.unknown]];
     $("status").innerHTML = st.filter(function (s) { return s[1]; }).map(function (s) {
       return '<div class="status-row"><h3>' + s[0] + "</h3><p>" + esc(s[1]) + "</p></div>";
     }).join("");
@@ -254,17 +254,40 @@
     // чеки
     $("e-paid").textContent = money(t.paid);
     $("e-planned").textContent = t.planned > 0 ? money(t.planned) : (t.plannedUnknown ? "уточняется" : "—");
-    var paid = (c.expenses || []).filter(function (e) { return e.status === "paid"; }).sort(byDateDesc);
-    $("receipts").innerHTML = paid.length ? paid.map(function (e, i) {
+    // Строки списка «Чеки»:
+    // 1) оплаченные расходы с файлами (expenses, status "paid") — с суммой;
+    // 2) отдельный список receipts — чеки по дням, сумма у них необязательна.
+    // В итог «Уже оплачено» идут только суммы из expenses, поэтому чеки из receipts ничего не удваивают.
+    var looseReceipts = (c.receipts || []).filter(function (r) { return r && r.file; });
+    var rows = [];
+    (c.expenses || []).forEach(function (e) {
+      if (e.status !== "paid") return;
       var files = (e.files || []).map(function (f) { return typeof f === "string" ? { file: f } : f; });
+      if (!files.length && looseReceipts.length) return; // общая запись без файлов — её чеки лежат в receipts
+      rows.push({ date: e.date, amount: isNum(e.amount) ? e.amount : null, title: e.title || "", files: files });
+    });
+    var byDay = {};
+    looseReceipts.forEach(function (r) {
+      var key = r.date || "";
+      if (!byDay[key]) { byDay[key] = { date: key, amount: 0, allHaveAmount: true, title: "", files: [] }; rows.push(byDay[key]); }
+      byDay[key].files.push({ file: r.file, label: r.label });
+      if (isNum(r.amount)) byDay[key].amount += r.amount; else byDay[key].allHaveAmount = false;
+    });
+    rows.forEach(function (r) { if (r.allHaveAmount === false) r.amount = null; });
+    rows.sort(byDateDesc);
+    var paid = rows;
+    $("receipts").innerHTML = rows.length ? rows.map(function (e, i) {
+      var files = e.files;
       var group = "r" + i;
       var btns = files.length ? files.map(function (f, k) {
         var label = f.label || (files.length > 1 ? "Чек " + (k + 1) : "Открыть чек");
-        return fileButton(f.file, label, "").replace("<a ", '<a data-group="' + group + '" data-meta="' + esc(dateShort(e.date) + ", " + money(e.amount || 0)) + '" data-title="' + esc(e.title || "Чек") + '" ');
+        return fileButton(f.file, label, "").replace("<a ", '<a data-group="' + group + '" data-meta="' + esc(dateShort(e.date) + (e.amount !== null ? ", " + money(e.amount) : "")) + '" data-title="' + esc(e.title || "Чек") + '" ');
       }).join("") : '<span class="btn btn-file is-missing" aria-disabled="true"><span data-pixel="doc"></span>чеки скоро</span>';
-      return '<li' + (i >= SHOW_RECEIPTS ? " hidden" : "") + '><div class="receipt-info"><span class="receipt-date">' + dateShort(e.date) + "</span>" +
-        '<span class="receipt-sum">' + (isNum(e.amount) ? money(e.amount) : "—") + "</span>" +
-        (e.title ? '<span class="receipt-note">' + esc(e.title) + "</span>" : "") + '</div><div class="receipt-files">' + btns + "</div></li>";
+      var dayRow = e.amount === null && !e.title;
+      var filesStyle = dayRow ? ' style="grid-column: 2 / -1; flex-basis: 100%; justify-content: flex-start"' : "";
+      return '<li' + (i >= SHOW_RECEIPTS ? " hidden" : "") + (dayRow ? ' style="flex-wrap: wrap"' : "") + '><div class="receipt-info"><span class="receipt-date">' + dateShort(e.date) + "</span>" +
+        (e.amount !== null ? '<span class="receipt-sum">' + money(e.amount) + "</span>" : "") +
+        (e.title ? '<span class="receipt-note">' + esc(e.title) + "</span>" : "") + '</div><div class="receipt-files"' + filesStyle + ">" + btns + "</div></li>";
     }).join("") : '<li class="empty">Чеки появятся здесь.</li>';
     var more = $("receipts-more");
     more.hidden = paid.length <= SHOW_RECEIPTS;
