@@ -344,3 +344,15 @@ a:hover { color: var(--pink-deep); }
 .nav a[href="#news"] {
   display: none !important;
 }
+
+/* Предстоящие расходы: ровные колонки */
+.planned-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; align-items: baseline; }
+.planned-title { grid-row: 1; grid-column: 1; }
+.planned-sum { grid-row: 1; grid-column: 2; text-align: right; white-space: nowrap; }
+.planned-src { display: block; grid-row: 2; grid-column: 1 / -1; font-size: 15px; line-height: 1.5; color: var(--muted); }
+.planned-src .pill { margin-left: 8px; white-space: nowrap; color: var(--ink); vertical-align: 1px; }
+@media (min-width: 900px) {
+  .planned-list li { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) 170px; gap: 24px; padding: 16px 0; }
+  .planned-src { grid-row: 1; grid-column: 2; font-size: 16px; }
+  .planned-sum { grid-column: 3; }
+}
