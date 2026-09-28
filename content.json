@@ -9,7 +9,8 @@
   },
 
   "donations": [
-  { "date": "2026-09-28", "amount_rub": 40000 }
+  { "date": "2026-09-28", "amount_rub": 40000 },
+  { "date": "2026-09-28", "amount_rub": 50625.61 }
 ],
 
   "expenses": [
