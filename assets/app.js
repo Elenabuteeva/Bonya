@@ -394,8 +394,9 @@
   var tag = document.querySelector("#crypto .tag");
   if (tag) tag.textContent = "через OxaPay";
 
-  $("crypto-body").innerHTML =
+ $("crypto-body").innerHTML =
     '<div class="pay-body">' +
+      '<div class="qr" id="crypto-pay-qr"></div>' +
       '<a class="btn btn-lilac" href="' + url + '" ' +
       'target="_blank" rel="noopener noreferrer">' +
         'Помочь криптой' +
@@ -404,7 +405,6 @@
         'Выберите валюту и сеть на странице оплаты OxaPay. ' +
         'Спасибо за помощь Боне!' +
       '</p>' +
-      '<div class="qr" id="crypto-pay-qr"></div>' +
     '</div>';
 
   if (window.BonyaQR) {
