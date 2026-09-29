@@ -389,38 +389,32 @@
   }
 
   function renderCrypto(list) {
-    var ready = list.filter(function (c) { return c && c.address && String(c.address).trim(); });
-    var body = $("crypto-body");
-    if (!ready.length) {
-      body.innerHTML = '<div class="pay-body"><button type="button" class="btn" disabled>Скопировать адрес</button>' +
-        '<p class="pay-note">Адрес для перевода криптовалюты появится здесь, как только будет готов.</p></div>';
-      return;
-    }
-    var tabs = ready.length > 1 ? '<div class="coin-tabs" role="tablist" aria-label="Монета и сеть">' + ready.map(function (c, i) {
-      return '<button type="button" role="tab" id="coin-tab-' + i + '" aria-controls="coin-panel" aria-selected="' + (i === 0) + '" data-i="' + i + '">' +
-        esc(c.coin) + (c.network ? " · " + esc(c.network) : "") + "</button>";
-    }).join("") + "</div>" : "";
-    body.innerHTML = '<div class="pay-body">' + tabs + '<div id="coin-panel" role="tabpanel"></div></div>';
-    function show(i) {
-      var c = ready[i], address = String(c.address).trim(), memo = c.memo ? String(c.memo).trim() : "";
-      var h = field("Монета", c.coin || "—") + field("Сеть", c.network || "—") + field("Адрес", address, true);
-      if (memo) h += field("Memo / тег — обязательно", memo, true);
-      h += '<div class="qr" id="coin-qr"></div>';
-      h += '<div class="copy-line"><button type="button" class="btn btn-lilac" id="copy-address">Скопировать адрес</button>' +
-        (memo ? '<button type="button" class="btn btn-paper" id="copy-memo">Скопировать memo</button>' : "") + "</div>";
-      h += '<p class="pay-note">Отправляйте только ' + esc(c.coin || "эту монету") + (c.network ? " в сети " + esc(c.network) : "") +
-        " — иначе перевод может потеряться." + (memo ? " Без memo/тега Bybit не зачислит перевод." : "") + "</p>";
-      $("coin-panel").innerHTML = h;
-      if (window.BonyaQR) $("coin-qr").innerHTML = BonyaQR.svg(address, { size: 176, label: "QR-код с адресом " + (c.coin || "") });
-      $("copy-address").onclick = function () { copy(address, "Адрес скопирован"); };
-      if (memo) $("copy-memo").onclick = function () { copy(memo, "Memo скопирован"); };
-      body.querySelectorAll('[role="tab"]').forEach(function (b) { b.setAttribute("aria-selected", String(+b.getAttribute("data-i") === i)); });
-    }
-    body.querySelectorAll('[role="tab"]').forEach(function (b) {
-      b.addEventListener("click", function () { show(+b.getAttribute("data-i")); });
+  var url = "https://pay.oxapay.com/19548371";
+
+  var tag = document.querySelector("#crypto .tag");
+  if (tag) tag.textContent = "через OxaPay";
+
+  $("crypto-body").innerHTML =
+    '<div class="pay-body">' +
+      '<a class="btn btn-lilac" href="' + url + '" ' +
+      'target="_blank" rel="noopener noreferrer">' +
+        'Помочь криптой' +
+      '</a>' +
+      '<p class="pay-note">' +
+        'Выберите валюту и сеть на странице оплаты OxaPay. ' +
+        'Спасибо за помощь Боне!' +
+      '</p>' +
+      '<div class="qr" id="crypto-pay-qr"></div>' +
+    '</div>';
+
+  if (window.BonyaQR) {
+    $("crypto-pay-qr").innerHTML = BonyaQR.svg(url, {
+      size: 176,
+      label: "QR-код со ссылкой на сбор в OxaPay"
     });
-    show(0);
   }
+}
+
 
   function showWarnings() {
     var box = document.createElement("div");
