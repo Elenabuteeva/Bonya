@@ -356,3 +356,15 @@ a:hover { color: var(--pink-deep); }
   .planned-src { grid-row: 1; grid-column: 2; font-size: 16px; }
   .planned-sum { grid-column: 3; }
 }
+
+#crypto-body .pay-body > .btn {
+  order: 1;
+}
+
+#crypto-body .pay-body > .qr {
+  order: 2;
+}
+
+#crypto-body .pay-body > .pay-note {
+  order: 3;
+}
